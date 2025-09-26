@@ -5,10 +5,8 @@ def increase_brightness(image, value):
     try:
         # Convert image pixels to int16 to avoid overflow during addition
         img_int = image.astype(np.int16)
-
         # Add the brightness value to all pixels
         img_bright = img_int + value
-
         # Clip the result to [0, 255] to fit into valid pixel value range
         img_bright = np.clip(img_bright, 0, 255)
 
@@ -17,15 +15,14 @@ def increase_brightness(image, value):
     except Exception as e:
         print("Error while increasing brightness:", e)
         return image
-    
 try:
     # Open the image file
     img = Image.open("input.jpg")
 except FileNotFoundError:
-    print("Error: input.jpg not found.")
+    print("Error x: input.jpg not found.")
     exit()
 except Exception as e:
-    print(f"Error opening image: {e}")
+    print(f"Error x opening image: {e}")
     exit()
 
 try:
